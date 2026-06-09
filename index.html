@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="crt-overlay"></div>
+    
+    <div class="terminal-container" id="terminal">
+        <div id="output"></div>
+        <div class="input-line" id="input-line">
+            <span class="prompt">guest@portfolio:~$</span>
+            <span id="input-text"></span><span class="cursor">_</span>
+        </div>
+        <!-- Hidden input to capture keyboard events reliably, especially on mobile -->
+        <input type="text" id="hidden-input" autocomplete="off" spellcheck="false" autofocus>
+    </div>
+
+    <!-- Hidden Data for Portfolio -->
+    <template id="data-about">
+INITIALIZING DECRYPTION...
+[SUCCESS] Access Granted.
+
+> NAME: Creative Developer
+> SPECIALTY: Unconventional Interactive Web Experiences
+> SKILLS: HTML5 | CSS3 | JavaScript | React | Three.js | Node.js
+
+I combine technical expertise with a keen eye for design to bring ideas to life.
+    </template>
+    
+    <template id="data-projects">
+FETCHING PROJECT DATABASE...
+[SUCCESS] 3 Records Found.
+
+[1] PROJECT ALPHA
+    Description: A futuristic dashboard interface with complex data visualizations.
+    Status: DEPLOYED
+
+[2] PROJECT BETA
+    Description: An e-commerce experience blending 3D elements and modern typography.
+    Status: DEPLOYED
+
+[3] PROJECT GAMMA
+    Description: An interactive storytelling platform using scroll-triggered animations.
+    Status: DEPLOYED
+    </template>
+    
+    <template id="data-contact">
+ESTABLISHING SECURE CONNECTION...
+[SUCCESS] Connection Established.
+
+You can reach me through the following secure channels:
+
+> EMAIL:   hello@example.com
+> TWITTER: @creative_dev
+> GITHUB:  github.com/creativedev
+> LINKEDIN: linkedin.com/in/creativedev
+    </template>
+
+    <script src="script.js"></script>
+</body>
+</html>

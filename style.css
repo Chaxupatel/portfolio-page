@@ -1,0 +1,131 @@
+/* CSS Reset & Variables */
+:root {
+    --bg-color: #050505;
+    --terminal-green: #00ff00;
+    --terminal-dim: #008800;
+    --font-mono: 'Fira Code', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--terminal-green);
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    line-height: 1.5;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CRT Screen Effect Overlay */
+.crt-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(
+        rgba(18, 16, 16, 0) 50%,
+        rgba(0, 0, 0, 0.25) 50%
+    );
+    background-size: 100% 4px;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.crt-overlay::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: radial-gradient(circle, rgba(0,0,0,0) 60%, rgba(0,0,0,0.6) 100%);
+    z-index: 101;
+    pointer-events: none;
+}
+
+/* Terminal Container */
+.terminal-container {
+    width: 95vw;
+    max-width: 1200px;
+    height: 95vh;
+    padding: 2rem;
+    overflow-y: auto;
+    position: relative;
+    z-index: 10;
+    text-shadow: 0 0 5px var(--terminal-green);
+    scrollbar-width: none; /* Firefox */
+}
+
+.terminal-container::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+/* Input line */
+.input-line {
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.prompt {
+    color: var(--terminal-dim);
+    margin-right: 0.8rem;
+}
+
+.cursor {
+    display: inline-block;
+    width: 10px;
+    height: 1.2em;
+    background-color: var(--terminal-green);
+    animation: blink 1s step-end infinite;
+    vertical-align: middle;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+#hidden-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Output Styling */
+#output {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.output-line {
+    margin-bottom: 0.2rem;
+}
+
+.command-echo {
+    color: var(--terminal-dim);
+    margin-bottom: 1rem;
+}
+
+.error-text {
+    color: #ff3333;
+    text-shadow: 0 0 5px #ff3333;
+}
+
+.success-text {
+    color: #ffff00;
+    text-shadow: 0 0 5px #ffff00;
+}
