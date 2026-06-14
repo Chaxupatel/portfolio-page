@@ -12,7 +12,8 @@ const bootText = [
     "MOUNTING FILESYSTEM... [OK]",
     "ESTABLISHING SECURE CONNECTION... [OK]",
     " ",
-    "Welcome to PortfolioOS v1.0",
+    "Welcome to Chaxu Patel's PortfolioOS v1.0",
+    "Jr. Unity Developer building engaging mobile games",
     "Type 'help' to see available commands.",
     " "
 ];
@@ -86,7 +87,7 @@ function processCommand(cmd) {
     // Echo command
     const echoDiv = document.createElement('div');
     echoDiv.className = 'command-echo';
-    echoDiv.textContent = `guest@portfolio:~$ ${cmd}`;
+    echoDiv.textContent = `chaxu@portfolio:~$ ${cmd}`;
     outputDiv.appendChild(echoDiv);
     
     if (cmd === '') {
@@ -101,9 +102,13 @@ function processCommand(cmd) {
         case 'help':
             linesToPrint = [
                 "Available commands:",
-                "  about      - Decrypt personal information",
-                "  projects   - Access project database",
-                "  contact    - Establish secure communication channels",
+                "  about      - Personal information and bio",
+                "  work       - Current role and experience",
+                "  education  - Academic background",
+                "  skills     - Technical skills and tools",
+                "  projects   - Project database",
+                "  contact    - Email and social links",
+                "  resume     - View résumé download link",
                 "  clear      - Clear terminal output",
                 " "
             ];
@@ -113,6 +118,19 @@ function processCommand(cmd) {
             linesToPrint = document.getElementById('data-about').innerHTML.trim().split('\n');
             linesToPrint.push(" ");
             break;
+        case 'work':
+        case 'experience':
+            linesToPrint = document.getElementById('data-work').innerHTML.trim().split('\n');
+            linesToPrint.push(" ");
+            break;
+        case 'education':
+            linesToPrint = document.getElementById('data-education').innerHTML.trim().split('\n');
+            linesToPrint.push(" ");
+            break;
+        case 'skills':
+            linesToPrint = document.getElementById('data-skills').innerHTML.trim().split('\n');
+            linesToPrint.push(" ");
+            break;
         case 'projects':
         case 'ls':
             linesToPrint = document.getElementById('data-projects').innerHTML.trim().split('\n');
@@ -120,6 +138,11 @@ function processCommand(cmd) {
             break;
         case 'contact':
             linesToPrint = document.getElementById('data-contact').innerHTML.trim().split('\n');
+            linesToPrint.push(" ");
+            break;
+        case 'resume':
+        case 'cv':
+            linesToPrint = document.getElementById('data-resume').innerHTML.trim().split('\n');
             linesToPrint.push(" ");
             break;
         case 'clear':
