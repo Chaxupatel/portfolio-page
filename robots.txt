@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chaxupatel.github.io/portfolio-page/sitemap.xml
